@@ -31,10 +31,10 @@ Date: 2022/09/22
 ## **Reference**
 
 Demonstration of Kinematic Control with Trajectory Tracking | CoppeliaSim (V-REP)
-* https://youtu.be/bs6Ly6P-saA \
+* https://youtu.be/bs6Ly6P-saA 
 
 Creating paths on the floor | CoppeliaSim (V-REP)
-* https://youtu.be/P6-qrxsaChg \
+* https://youtu.be/P6-qrxsaChg 
 
 Using PythonAPI in CoppeliaSim
 * https://blog.sravjti.in/2021/06/26/using-python-api-in-coppeliasim.html#establishing-communication
