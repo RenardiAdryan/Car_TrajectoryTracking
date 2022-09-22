@@ -117,6 +117,10 @@ if clientID!=-1:
     car = Manta(clientID)
     try:
         while True:
+            carPosOnPath = sim.simxGetFloatSignal(clientID,'carPosOnPath',sim.simx_opmode_oneshot)[1]
+            totalLength = sim.simxGetFloatSignal(clientID,'totalLength',sim.simx_opmode_oneshot)[1]
+            timetravel = sim.simxGetFloatSignal(clientID,'timetravel',sim.simx_opmode_oneshot)[1]
+
             returnCodedummy,target_pos=target.getbodyposition()
             returnCodecar,car_pos=car.getbodyposition()
             returnCodecar_orient,car_orient=car.getbodyorientation()
@@ -133,23 +137,28 @@ if clientID!=-1:
                 # print("target_pos",target_pos," | ","car_pos",car_pos," | ",angle)
                 # print(car_orient[2]*57.2958)
 
-                
+                #Time Control
+                desired_time = 80
+                Vmax = 20
+                if desired_time > timetravel:
+                    speed = (totalLength - carPosOnPath)/(desired_time-timetravel)*10
+                else:
+                    speed = Vmax
 
                 ## Heading Control
                 PID_P=0.6
                 angle = angle*PID_P
-
 
                 if angle > 30:
                     angle = 30
                 elif angle<-30:
                     angle=-30
 
-                car.move(-angle/57.2958,20)
-                text = "angle: "+str(angle)+" | "+"Speed: "+str(10)
-                print(text,flush=True)
+                car.move(-angle/57.2958,speed)
+                # text = "angle: "+str(angle)+" | "+"Speed: "+str(10)
+                # print(text,flush=True)
                 # sim.simxAddStatusbarMessage(clientID,text,sim.simx_opmode_oneshot)
-
+                print(speed,carPosOnPath,totalLength,timetravel)
             
     except KeyboardInterrupt:   #Checks if ctrl+c is pressed 
         car.move(0,0)
