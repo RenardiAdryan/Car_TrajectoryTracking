@@ -7,29 +7,29 @@ The goal of this repository is to implement the path tracking algorithm of mobil
 </div>
 
 ## **Feature**
-***
+
 * Proportional Derivative Control (PID)
 * Wheeled Ackerman-Steering Non-Holonomic
 
 ## **Installation**
-***
+
 1. Install Latest CoppeliaSim (https://www.coppeliarobotics.com/)
 2. Install required library
     ```Python
     pip install -r requirements.txt
     ```
 ## **Launch**
-***
+
 ```Python
 python ./script.py
 ```
 ## **About us**
-***
+
 Contact: renardi98@gmail.com \
 Date: 2022/09/22 
 
 ## **Reference**
-***
+
 Demonstration of Kinematic Control with Trajectory Tracking | CoppeliaSim (V-REP)
 * https://youtu.be/bs6Ly6P-saA \
 
