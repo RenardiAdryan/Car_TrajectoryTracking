@@ -1,7 +1,7 @@
 # **Car Trajectory Tracking**
 ---
 ## **Abstract**
-***
+
 <div align="justify">
 The goal of this repository is to implement the path tracking algorithm of mobile robot using the PID control. PID provide a simplest way to do trajectory tracking since it has a little paramter that to be adjusted. This Repository is built on Coppeliasim including the connection to the python code
 </div>
