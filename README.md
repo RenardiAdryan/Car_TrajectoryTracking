@@ -23,11 +23,6 @@ The goal of this repository is to implement the path tracking algorithm of mobil
 ```Python
 python ./script.py
 ```
-
-## **Scene**
-***
-![](c:/Users/Engineering/Downloads/Screenshot%202022-09-22%20102937.png)
-
 ## **About us**
 ***
 Contact: renardi98@gmail.com \
