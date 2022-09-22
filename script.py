@@ -6,7 +6,7 @@ import math
 class ref_point:
     def __init__(self,clientID):
         self.clientID = clientID
-        _,self.body = sim.simxGetObjectHandle(self.clientID,'/Path/ref_point',sim.simx_opmode_blocking)
+        _,self.body = sim.simxGetObjectHandle(self.clientID,'/ref_point',sim.simx_opmode_blocking)
         
         ##current ref_point body pos
         sim.simxGetObjectPosition(self.clientID,self.body,-1,sim.simx_opmode_streaming)
@@ -133,19 +133,21 @@ if clientID!=-1:
                 # print("target_pos",target_pos," | ","car_pos",car_pos," | ",angle)
                 # print(car_orient[2]*57.2958)
 
-                set_point = 0.5 # 0.5 meter
-                PID_P=10
-                errorValue = set_point - distance
-                ctrl=errorValue*PID_P
+                
+
+                ## Heading Control
+                PID_P=0.6
+                angle = angle*PID_P
+
 
                 if angle > 30:
                     angle = 30
                 elif angle<-30:
                     angle=-30
 
-                car.move(-angle/57.2958,-ctrl)
-                text = "angle: "+str(angle)+" | "+"Speed: "+str(ctrl)
-                print(text)
+                car.move(-angle/57.2958,20)
+                text = "angle: "+str(angle)+" | "+"Speed: "+str(10)
+                print(text,flush=True)
                 # sim.simxAddStatusbarMessage(clientID,text,sim.simx_opmode_oneshot)
 
             
